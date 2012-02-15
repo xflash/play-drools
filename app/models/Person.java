@@ -1,28 +1,21 @@
 package models;
 
+import play.db.jpa.Model;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.HashSet;
 import java.util.Set;
 
 /**
  */
-public class Person {
+@Entity
+public class Person extends Model {
     
     public String name;
 
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL)
     public Set<Pet> pets = new HashSet<Pet>();
 
-    public Person(String name) {
-        this.name = name;
-    }
-
-    public void cat(String petName) {
-        pets.add(pet(petName, PetType.CAT));
-    }
-    public void dog(String petName) {
-        pets.add(pet(petName, PetType.DOG));
-    }
-
-    private Pet pet(String petName, PetType petType) {
-        return new Pet(petType, petName);
-    }
 }

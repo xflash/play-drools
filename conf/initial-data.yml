@@ -1,0 +1,14 @@
+# you describe your data using the YAML notation here
+
+Person(homer):
+    name: Homer
+
+Pet(dog1):
+    type: PetType.DOG
+    name: Milou
+    owner: homer
+
+Pet(cat1):
+    type: PetType.CAT
+    name: Hello kitty
+    owner: homer
