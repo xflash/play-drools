@@ -1,0 +1,13 @@
+package org.plugtree.examples;
+
+import models.Person;
+import models.Pet;
+import models.PetType;
+
+rule "Print cat from a person"
+  when
+    $p: Person($pets: pets)
+    $cat: Pet(type == PetType.CAT) from $pets
+  then
+    System.out.println($p.name +" has a cat called "+$cat.name);
+end
